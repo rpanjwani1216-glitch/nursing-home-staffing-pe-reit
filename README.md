@@ -104,7 +104,7 @@ but can be downloaded automatically — see **Reproducing the Paper** below.
 | **CMS Form 671** | LTC facility characteristics (2023–present) | [data.cms.gov](https://data.cms.gov/provider-data/dataset/4pq5-n9py) — automated via manifest |
 
 Download manifests (exact versioned URLs for every CMS file used) are tracked in git at
-`data/raw/outcomes/cms/manifests/` and read automatically by `scripts/download_raw_data.py`.
+`data/manifests/` and read automatically by `scripts/download_raw_data.py`.
 
 PE ownership was verified via CHOW filings + internet search (trade press, HealthcareComps, ProPublica). See `research/verification/ownership_transition_verification_notes.md`.
 

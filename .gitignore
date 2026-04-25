@@ -32,9 +32,6 @@ data/intermediate/
 
 # Raw data (too large / licensed)
 data/raw/
-# ...except the CMS manifests (small CSVs that record every download URL)
-!data/raw/outcomes/cms/manifests/
-!data/raw/outcomes/cms/README.md
 
 # Stata binary files (too large for GitHub; CSVs are tracked instead)
 # Largest .dta files exceed GitHub's 100MB hard limit

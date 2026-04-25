@@ -35,10 +35,10 @@ import urllib.error
 from pathlib import Path
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
-ROOT = Path(__file__).resolve().parents[1]
-RAW  = ROOT / "data" / "raw"
-CMS  = RAW  / "outcomes" / "cms"
-MANIFESTS = CMS / "manifests"
+ROOT      = Path(__file__).resolve().parents[1]
+RAW       = ROOT / "data" / "raw"
+CMS       = RAW  / "outcomes" / "cms"
+MANIFESTS = ROOT / "data" / "manifests"   # tracked in git (not in data/raw/)
 
 # ── Manifest → URL mapping ────────────────────────────────────────────────────
 # Each CMS manifest is a headerless CSV whose last column is a download URL.
