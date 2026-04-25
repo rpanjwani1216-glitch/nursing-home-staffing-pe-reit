@@ -1,0 +1,30 @@
+{
+  "deal_year": 2019,
+  "source_facilities_listed_in_bankruptcy_filing": 30,
+  "matched_facilities_with_ccns": 25,
+  "unmatched_facilities": 5,
+  "years": [
+    2017,
+    2018,
+    2019,
+    2020,
+    2021
+  ],
+  "event_window": {
+    "t_minus_2": 2017,
+    "t0": 2019,
+    "t_plus_2": 2021
+  },
+  "source_documents": {
+    "lavie_bankruptcy_facility_list_pdf": "https://documents.elevenflo.com/uuid_database_8_14_23/b3244505-3f86-4db2-a068-7de32236d986.pdf",
+    "stretto_creditor_matrix_pdf": "https://cases.stretto.com/public/X122/11358/PLEADINGS/1135804152180000000161.pdf",
+    "houlihan_lokey_fc_encore_transaction": "https://hl.com/about-us/transactions/houlihan-lokey-advises-fc-encore/"
+  },
+  "repo_sources": {
+    "ltcfocus": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/data/intermediate/ltcfocus/ltcfocus_facility_year_full.csv",
+    "pbj": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/data/intermediate/cms/pbj_nurse_facility_year.csv",
+    "care_compare_provider": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/data/intermediate/cms/care_compare_provider_info_year.csv",
+    "care_compare_health": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/data/intermediate/cms/care_compare_health_deficiencies_year.csv",
+    "care_compare_survey": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/data/intermediate/cms/care_compare_survey_summary_year.csv"
+  }
+}

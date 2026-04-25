@@ -1,0 +1,47 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Main DID: total nurse hours per resident day (gold+silver)}
+\begin{tabular}{l*{3}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+                    &\multicolumn{1}{c}{National}&\multicolumn{1}{c}{Same-state}&\multicolumn{1}{c}{Matched}\\
+\hline
+did\_treat           &      -0.194\sym{***}&      -0.191\sym{***}&      -0.121\sym{**} \\
+                    &    (0.0523)         &    (0.0523)         &    (0.0581)         \\
+[1em]
+2017.year           &           0         &           0         &           0         \\
+                    &         (.)         &         (.)         &         (.)         \\
+[1em]
+2018.year           &      0.0481\sym{***}&      0.0705\sym{***}&      0.0270         \\
+                    &   (0.00572)         &    (0.0109)         &    (0.0325)         \\
+[1em]
+2019.year           &      0.0315\sym{***}&      0.0679\sym{***}&      0.0161         \\
+                    &   (0.00625)         &    (0.0110)         &    (0.0336)         \\
+[1em]
+2020.year           &       0.201\sym{***}&       0.257\sym{***}&       0.175\sym{***}\\
+                    &   (0.00806)         &    (0.0139)         &    (0.0432)         \\
+[1em]
+2021.year           &      0.0604\sym{***}&       0.131\sym{***}&      0.0888\sym{**} \\
+                    &   (0.00790)         &    (0.0138)         &    (0.0450)         \\
+[1em]
+2022.year           &     -0.0626\sym{***}&     0.00195         &      0.0283         \\
+                    &   (0.00769)         &    (0.0139)         &    (0.0615)         \\
+[1em]
+2023.year           &     -0.0229\sym{***}&     0.00391         &      -0.111\sym{**} \\
+                    &   (0.00778)         &    (0.0138)         &    (0.0511)         \\
+[1em]
+2024.year           &      0.0383\sym{***}&      0.0681\sym{***}&     -0.0571         \\
+                    &   (0.00797)         &    (0.0144)         &    (0.0533)         \\
+[1em]
+2025.year           &      0.0825\sym{***}&       0.105\sym{***}&     -0.0348         \\
+                    &   (0.00817)         &    (0.0146)         &    (0.0499)         \\
+[1em]
+Constant            &       3.937\sym{***}&       3.992\sym{***}&       3.855\sym{***}\\
+                    &   (0.00529)         &   (0.00939)         &    (0.0317)         \\
+\hline
+Observations        &       82936         &       26543         &        1730         \\
+\hline\hline
+\multicolumn{4}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{4}{l}{\footnotesize \sym{*} \(p<0.10\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+\end{table}

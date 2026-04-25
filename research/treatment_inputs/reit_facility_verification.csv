@@ -1,0 +1,82 @@
+ccn,facility_name,state,deal_id,reit_name,platform_name,ownership_effective_date,treat_year,source_group,verification_tier,analysis_sample,sample_role,transition_type
+155495,PADDOCK SPRINGS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155680,HOMEWOOD HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155712,COVERED BRIDGE HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155727,STONEBRIDGE HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155735,ASHFORD PLACE HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155736,MILL POND HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155762,FOREST PARK HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155772,COBBLESTONE CROSSINGS HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155775,CUMBERLAND POINTE HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155777,CREASY SPRINGS HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155779,PRAIRIE LAKES HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155791,BLAIR RIDGE HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155795,AVALON SPRINGS HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155797,ASPEN PLACE HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155806,WELLBROOKE OF WABASH,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155811,WELLBROOKE OF AVON,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155812,WELLBROOKE OF CRAWFORDSVILLE,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155815,CLEARVISTA LAKE HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155816,ARLINGTON PLACE HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155818,HEARTHSTONE HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155819,WELLBROOKE OF KOKOMO,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155822,CEDAR CREEK HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155824,WELLBROOKE OF SOUTH BEND,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155829,"SPRINGS AT LAFAYETTE, THE",IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155830,HARRISON'S CROSSING HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155833,WELLBROOKE OF CARMEL,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155837,"VILLAGES AT OAK RIDGE, THE",IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+155838,STONECROFT HEALTH CAMPUS,IN,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+185132,Franciscan Health Care Center,KY,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+185145,Cedar Ridge Health Campus,KY,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+185210,The Willows at Harrodsburg,KY,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+235451,The Oaks at Battle Creek,MI,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+235735,The Oaks at Jamestown,MI,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+366365,WILLOWS AT BELLEVUE,OH,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+366474,VIOLET SPRINGS HEALTH CAMPUS,OH,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+366492,NORWICH SPRINGS HEALTH CAMPUS,OH,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+366498,LIBERTY STATION HEALTH CAMPUS,OH,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+366499,WILLOWS AT BOWLING GREEN THE,OH,REIT001,American Healthcare REIT,Trilogy,2015,2015,trilogy_2015_verified,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+255145,COURTYARD HEALTH AND REHABILITATION,MS,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+255171,MIDDLETON OAKS HEALTH AND REHABILITATION,MS,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+255172,STARKVILLE MANOR HEALTH CARE AND REHABILITATION CE,MS,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+255173,GRAND TRACE HEALTH AND REHABILITATION,MS,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+255260,HILLTOP MANOR HEALTH AND REHABILITATION CENTER,MS,REIT002,Omega Healthcare Investors,FC Encore / Consulate,2019,2019,fc_encore_2019_direct,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+255261,THE OAKS REHABILITATION AND HEALTHCARE CENTER,MS,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+345089,Walnut Cove Health and Rehabilitation,NC,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+345258,Kannapolis Health and Rehabilitation,NC,REIT002,Omega Healthcare Investors,FC Encore / Consulate,2019,2019,fc_encore_2019_direct,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+345329,Hibriten Mountain Nursing and Rehabilitation,NC,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+345426,Valley View Care and Rehabilitation,NC,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+345436,Wellington Rehabilitation and Healthcare,NC,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+345442,Forrest Oakes Healthcare,NC,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+345447,Emerald Ridge Health and Rehabilitation,NC,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+345450,Westwood Health and Rehabilitation,NC,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+345464,Oak Grove Healthcare,NC,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+345466,Willowbrook Rehabilitation and Care,NC,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+345473,Wilora Lake Healthcare,NC,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+345477,Biltmore Haven Nursing and Rehabilitation,NC,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+395172,"MANOR AT PENN VILLAGE, THE",PA,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+395265,"PAVILION AT ST LUKE VILLAGE, THE",PA,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+395350,LOCUST GROVE RETIREMENT VILLAGE,PA,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+395422,PENNKNOLL VILLAGE,PA,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+395636,"MANOR AT ST LUKE VILLAGE,THE",PA,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+495273,Ghent Health and Rehabilitation,VA,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+495362,ASHLAND NURSING AND REHABILITATION,VA,REIT002,Omega Healthcare Investors,Consulate / LaVie subset,2019,2019,omega_consulate_2019_verified_subset,verified,reit_main,treated,non_reit_to_reit_or_reit_jv
+075240,COMPLETE CARE AT GLENDALE,CT,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+085013,COMPLETE CARE AT HILLSIDE LLC,DE,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+085027,COMPLETE CARE AT SILVER LAKE LLC,DE,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+085042,COMPLETE CARE AT BRACKENVILLE LLC,DE,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+215096,COMPLETE CARE AT MULTI MEDICAL CENTER LLC,MD,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+215143,COMPLETE CARE AT SEVERNA PARK LLC,MD,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+315015,"COMPLETE CARE AT MADISON, LLC",NJ,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+315050,"COMPLETE CARE AT BURLINGTON WOODS, LLC",NJ,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+315094,COMPLETE CARE AT MERCERVILLE LLC,NJ,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+315207,"COMPLETE CARE AT KRESSON VIEW, LLC",NJ,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+315216,COMPLETE CARE AT CEDAR GROVE,NJ,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+315219,"COMPLETE CARE AT VOORHEES, LLC",NJ,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+315228,"COMPLETE CARE AT COURT HOUSE, LLC",NJ,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+315316,COMPLETE CARE AT BRAKELEY PARK LLC,NJ,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+315349,"COMPLETE CARE AT INGLEMOOR, LLC",NJ,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+315362,COMPLETE CARE AT PARK PLACE LLC,NJ,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+395791,COMPLETE CARE AT HARSTON HALL LLC,PA,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv
+515163,COMPLETE CARE AT DAWNVIEW LLC,WV,REIT003,Welltower,Aurora / Complete Care former Genesis subset,2021,2021,welltower_aurora_2021_reverse_engineered,reverse_engineered,reit_main,treated,non_reit_to_reit_or_reit_jv

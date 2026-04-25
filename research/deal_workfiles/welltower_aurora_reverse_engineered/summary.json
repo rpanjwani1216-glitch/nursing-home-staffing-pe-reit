@@ -1,0 +1,28 @@
+{
+  "cohort_facilities": 18,
+  "states": [
+    "CT",
+    "DE",
+    "MD",
+    "NJ",
+    "PA",
+    "WV"
+  ],
+  "ltcfocus_panel_years": [
+    2009,
+    2010,
+    2011,
+    2012,
+    2013
+  ],
+  "notes": [
+    "This is a reverse-engineered subset, not a claimed full roster of the 35 Aurora JV Genesis facilities.",
+    "Facilities enter the subset when the latest CMS ownership snapshot shows a Welltower owner entity with a 2021 association date on a Complete Care provider row."
+  ],
+  "public_sources": {
+    "welltower_pr_2021": "https://www.prnewswire.com/news-releases/welltower-announces-substantial-exit-of-genesis-healthcare-operating-relationship-301239097.html",
+    "welltower_2021_10k": "https://welltower.com/wp-content/uploads/2022/02/2021-10-K-FINAL-select-Exhibits.pdf",
+    "welltower_2024_annual_report": "https://welltower.com/wp-content/uploads/2025/04/2024-Annual-Report.pdf",
+    "inquirer_aurora_complete_care_context": "https://www.inquirer.com/business/health/genesis-health-care-integra-welltower-nursing-homes-20230131.html"
+  }
+}

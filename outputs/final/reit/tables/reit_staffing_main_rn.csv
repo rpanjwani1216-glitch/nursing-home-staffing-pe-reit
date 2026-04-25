@@ -1,0 +1,12 @@
+="REIT staffing DID: LTCFocus RN HPRD"
+
+="",="(1)",="(2)",="(3)"
+="",="National",="Same-state",="Matched"
+
+="did_treat",="-0.123***",="-0.106**",="-0.0751*"
+="",="(0.0423)",="(0.0425)",="(0.0451)"
+
+="Observations",="141529",="44714",="3476"
+
+="Standard errors in parentheses"
+="* p<0.10, ** p<0.05, *** p<0.01"

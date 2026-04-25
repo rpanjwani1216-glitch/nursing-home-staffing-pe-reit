@@ -1,0 +1,12 @@
+{
+  "facilities_in_cohort": 244,
+  "years": [2009, 2010, 2011, 2012, 2013],
+  "event_window": {
+    "t_minus_2": 2009,
+    "t0": 2011,
+    "t_plus_2": 2013
+  },
+  "data_sources": {
+    "ltcfocus": "data/intermediate/ltcfocus/ltcfocus_facility_year_full.csv"
+  }
+}

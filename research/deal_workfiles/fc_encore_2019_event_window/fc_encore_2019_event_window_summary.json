@@ -1,0 +1,32 @@
+{
+  "facilities_in_cohort": 2,
+  "ccns": [
+    "255260",
+    "345258"
+  ],
+  "deal_year": 2019,
+  "years": [
+    2017,
+    2018,
+    2019,
+    2020,
+    2021
+  ],
+  "event_window": {
+    "t_minus_2": 2017,
+    "t0": 2019,
+    "t_plus_2": 2021
+  },
+  "source_files": {
+    "cohort_source": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/research/reit_ownership_investigation/reit_consecutive_homes_investigated.csv",
+    "ltcfocus": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/data/intermediate/ltcfocus/ltcfocus_facility_year_full.csv",
+    "pbj": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/data/intermediate/cms/pbj_nurse_facility_year.csv",
+    "care_compare_provider": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/data/intermediate/cms/care_compare_provider_info_year.csv",
+    "care_compare_health": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/data/intermediate/cms/care_compare_health_deficiencies_year.csv",
+    "care_compare_survey": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/data/intermediate/cms/care_compare_survey_summary_year.csv"
+  },
+  "transaction_sources": {
+    "seller_advisor_page": "https://hl.com/about-us/transactions/houlihan-lokey-advises-fc-encore/",
+    "omega_trade_press": "https://skillednursingnews.com/2019/11/omega-closes-735m-skilled-nursing-deal-confirms-consulate-as-primary-operator/"
+  }
+}

@@ -1,0 +1,57 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Claude Code
+.claude/
+
+# Stata logs and temp files
+*.log
+*.smcl
+*.stswp
+stata.log
+stdin.log
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Intermediate outputs (large, reproducible from pipeline)
+outputs/intermediate/
+
+# All intermediate data (3GB+, reproducible from pipeline)
+data/intermediate/
+
+# Raw data (too large / licensed)
+data/raw/
+
+# Stata binary files (too large for GitHub; CSVs are tracked instead)
+# Largest .dta files exceed GitHub's 100MB hard limit
+*.dta
+
+# Large raw research investigation files (>50MB, not needed for replication)
+research/verification/reit_ownership_investigation/reit_consecutive_homes_owner_history_raw.csv
+
+# R history
+.Rhistory
+
+# LaTeX build artifacts
+*.aux
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+outputs/tmp_tex/
+
+# Raw data cache files in deal workfiles (large zip archives)
+research/deal_workfiles/*/cache/
+
+# Stale outputs from pre-restructure runs
+outputs/tables/
+outputs/figures/
+outputs/qa/

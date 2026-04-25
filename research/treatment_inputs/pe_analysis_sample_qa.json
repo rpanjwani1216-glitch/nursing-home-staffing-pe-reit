@@ -1,0 +1,12 @@
+{
+  "total_rows": 61,
+  "gold_main_rows": 31,
+  "silver_main_rows": 21,
+  "silver_unclear_rows": 8,
+  "exclude_rows": 1,
+  "gold_main_verified_count": 31,
+  "duplicate_deal_ccn": 0,
+  "silver_main_missing_required_fields": 0,
+  "silver_main_pre_owner_pe_rows": 0,
+  "treat_year_parse_failures_gold_or_silver": 0
+}

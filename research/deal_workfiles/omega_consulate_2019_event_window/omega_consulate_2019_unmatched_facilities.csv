@@ -1,0 +1,6 @@
+omega_landlord,facility_name_source,city_state_source,ccn_str,match_method,city_source,state,provider_name_latest,provider_state
+"FC Encore Cary, LLC",Cary Health and Rehabilitation Center,"Cary, North Carolina",,unmatched,Cary,NC,,
+Mifflin Re Owner LLC,The Cottage at Locust Grove,"Mifflin, Pennsylvania",,unmatched_non_snf_or_name_gap,Mifflin,PA,,
+Hazleton Re Owner LLC,Luther Ridge at Seiders Hill,"Pottsville, Pennsylvania",,unmatched_non_snf_or_name_gap,Pottsville,PA,,
+Selinsgrove Re Owner LLC,Amity Village,"Selinsgrove, Pennsylvania",,unmatched_non_snf_or_name_gap,Selinsgrove,PA,,
+Everett Re Owner LLC,Pennsfield Apartments,"Everett, Pennsylvania",,unmatched_non_snf_or_name_gap,Everett,PA,,

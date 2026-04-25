@@ -1,0 +1,50 @@
+{
+  "facilities_in_cohort": 38,
+  "years": [
+    2013,
+    2014,
+    2015,
+    2016,
+    2017
+  ],
+  "event_window": {
+    "t_minus_2": 2013,
+    "t0": 2015,
+    "t_plus_2": 2017
+  },
+  "ltcfocus_years_available": [
+    2013,
+    2014,
+    2015,
+    2016,
+    2017
+  ],
+  "cms_provider_years_available": [
+    2013,
+    2014,
+    2015,
+    2016,
+    2017
+  ],
+  "cms_deficiency_years_available": [
+    2013,
+    2014,
+    2015,
+    2016,
+    2017
+  ],
+  "sources": {
+    "cms_archive_page": "https://www.cms.gov/medicare/health-safety-standards/quality-safety-oversight-general-information/five-star-quality-rating-system/five-star-quality-rating-system-archives",
+    "cms_archives_used": {
+      "2013": "https://www.cms.gov/files/zip/nursing-home-compare-data-2013.zip",
+      "2014": "https://www.cms.gov/files/zip/nursing-home-compare-data-2014.zip",
+      "2015": "https://www.cms.gov/files/zip/nursing-home-compare-data-2015.zip",
+      "2016": "https://www.cms.gov/files/zip/nursing-home-compare-data-2016.zip"
+    },
+    "local_2017_provider_info": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/data/raw/outcomes/cms/care_compare_archived_annual/2017/ProviderInfo_Download.csv",
+    "local_2017_deficiencies": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/data/raw/outcomes/cms/care_compare_archived_annual/2017/Deficiencies_Download.csv",
+    "local_2017_survey_summary": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/data/raw/outcomes/cms/care_compare_archived_annual/2017/SurveySummary_Download.csv",
+    "ltcfocus_intermediate": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/data/intermediate/ltcfocus/ltcfocus_facility_year_full.csv",
+    "cohort_source": "/Users/rohanpanjwani/School/ECON_1430/Final_Project/research/reit_ownership_investigation/reit_consecutive_homes_investigated.csv"
+  }
+}

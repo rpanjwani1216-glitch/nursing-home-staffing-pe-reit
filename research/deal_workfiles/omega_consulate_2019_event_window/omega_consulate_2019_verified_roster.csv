@@ -1,0 +1,31 @@
+omega_landlord,facility_name_source,city_state_source,ccn_str,match_method,city_source,state,provider_name_latest,provider_state
+"OHI Asset (VA) Ashland, LLC",Ashland Nursing and Rehabilitation Center,"Ashland, Virginia",495362,fuzzy_provider_name,Ashland,VA,ASHLAND NURSING AND REHABILITATION,VA
+"FC Encore Cary, LLC",Cary Health and Rehabilitation Center,"Cary, North Carolina",,unmatched,Cary,NC,,
+CSE Woodfin LP,Emerald Ridge Rehabilitation and Care Center,"Asheville, North Carolina",345447,fuzzy_provider_name,Asheville,NC,Emerald Ridge Health and Rehabilitation,NC
+"FC Encore Albemarle, LLC",Forrest Oakes Healthcare Center,"Albemarle, North Carolina",345442,exact_provider_name,Albemarle,NC,Forrest Oakes Healthcare,NC
+CSE Lenoir LP,Gateway Rehabilitation and Healthcare,"Lenoir, North Carolina",345329,exact_provider_name,Lenoir,NC,Hibriten Mountain Nursing and Rehabilitation,NC
+"FC Encore Natchez, LLC",Glenburney Health Care and Rehabilitation Center,"Natchez, Mississippi",255173,exact_provider_name,Natchez,MS,GRAND TRACE HEALTH AND REHABILITATION,MS
+"FC Encore Union, LLC",Hilltop Manor Health and Rehabilitation Center,"Union, Mississippi",255260,exact_provider_name,Union,MS,HILLTOP MANOR HEALTH AND REHABILITATION CENTER,MS
+"FC Encore Kannapolis, LLC",Transitional Health Services of Kannapolis,"Kannapolis, North Carolina",345258,exact_provider_name,Kannapolis,NC,Kannapolis Health and Rehabilitation,NC
+Mifflin Re Owner LLC,Locust Grove Retirement Village,"Mifflin, Pennsylvania",395350,exact_provider_name,Mifflin,PA,LOCUST GROVE RETIREMENT VILLAGE,PA
+Mifflin Re Owner LLC,The Cottage at Locust Grove,"Mifflin, Pennsylvania",,unmatched_non_snf_or_name_gap,Mifflin,PA,,
+Hazleton Re Owner LLC,Luther Ridge at Seiders Hill,"Pottsville, Pennsylvania",,unmatched_non_snf_or_name_gap,Pottsville,PA,,
+Hazleton Re Owner LLC,The Manor at St. Luke Village,"Hazleton, Pennsylvania",395636,fuzzy_provider_name,Hazleton,PA,"MANOR AT ST LUKE VILLAGE,THE",PA
+"FC Encore McComb, LLC",Courtyard Rehabilitation and Healthcare,"McComb, Mississippi",255145,exact_provider_name,McComb,MS,COURTYARD HEALTH AND REHABILITATION,MS
+"OHI Asset (VA) Norfolk, LLC",Consulate Health Care of Norfolk,"Norfolk, Virginia",495273,exact_provider_name,Norfolk,VA,Ghent Health and Rehabilitation,VA
+"FC Encore Rutherfordton, LLC",Oak Grove Healthcare Center,"Rutherfordton, North Carolina",345464,fuzzy_provider_name,Rutherfordton,NC,Oak Grove Healthcare,NC
+CSE Arden LP,The Oaks at Sweeten Creek,"Arden, North Carolina",345477,exact_provider_name,Arden,NC,Biltmore Haven Nursing and Rehabilitation,NC
+Hazleton Re Owner LLC,The Pavilion at St. Luke Village,"Hazleton, Pennsylvania",395265,fuzzy_provider_name,Hazleton,PA,"PAVILION AT ST LUKE VILLAGE, THE",PA
+Selinsgrove Re Owner LLC,Amity Village,"Selinsgrove, Pennsylvania",,unmatched_non_snf_or_name_gap,Selinsgrove,PA,,
+Everett Re Owner LLC,The Manor at Penn Village,"Everett, Pennsylvania",395172,fuzzy_provider_name,Everett,PA,"MANOR AT PENN VILLAGE, THE",PA
+Everett Re Owner LLC,Pennsfield Apartments,"Everett, Pennsylvania",,unmatched_non_snf_or_name_gap,Everett,PA,,
+Everett Re Owner LLC,Pennknoll Village,"Everett, Pennsylvania",395422,exact_provider_name,Everett,PA,PENNKNOLL VILLAGE,PA
+"FC Encore Meridian, LLC",The Oaks Rehabilitation and Healthcare Center,"Meridian, Mississippi",255261,exact_provider_name,Meridian,MS,THE OAKS REHABILITATION AND HEALTHCARE CENTER,MS
+"FC Encore Starkville, LLC",Starkville Manor Health Care and Rehabilitation Center,"Starkville, Mississippi",255172,fuzzy_provider_name,Starkville,MS,STARKVILLE MANOR HEALTH CARE AND REHABILITATION CE,MS
+"FC Encore Andrews, LLC",Valley View Care and Rehabilitation Center,"Andrews, North Carolina",345426,fuzzy_provider_name,Andrews,NC,Valley View Care and Rehabilitation,NC
+CSE Walnut Cove LP,Walnut Cove Health and Rehabilitation Center,"Walnut Cove, North Carolina",345089,exact_provider_name,Walnut Cove,NC,Walnut Cove Health and Rehabilitation,NC
+CSE Knightdale LP,Wellington Rehabilitation and Healthcare,"Knightdale, North Carolina",345436,exact_provider_name,Knightdale,NC,Wellington Rehabilitation and Healthcare,NC
+"FC Encore Archdale, LLC",Westwood Health and Rehabilitation Center,"Archdale, North Carolina",345450,fuzzy_provider_name,Archdale,NC,Westwood Health and Rehabilitation,NC
+"FC Encore Yadkinville, LLC",Willowbrook Rehabilitation and Care Center,"Yadkinville, North Carolina",345466,exact_provider_name,Yadkinville,NC,Willowbrook Rehabilitation and Care,NC
+"FC Encore Charlotte, LLC",Wilora Lake Healthcare Center,"Charlotte, North Carolina",345473,exact_provider_name,Charlotte,NC,Wilora Lake Healthcare,NC
+"FC Encore Winona, LLC",Winona Manor Health Care and Rehabilitation Center,"Winona, Mississippi",255171,exact_provider_name,Winona,MS,MIDDLETON OAKS HEALTH AND REHABILITATION,MS

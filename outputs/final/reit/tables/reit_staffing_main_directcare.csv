@@ -1,0 +1,12 @@
+="REIT staffing DID: LTCFocus direct-care HPRD"
+
+="",="(1)",="(2)",="(3)"
+="",="National",="Same-state",="Matched"
+
+="did_treat",="-0.496***",="-0.428***",="-0.381***"
+="",="(0.114)",="(0.115)",="(0.118)"
+
+="Observations",="141529",="44714",="3476"
+
+="Standard errors in parentheses"
+="* p<0.10, ** p<0.05, *** p<0.01"
