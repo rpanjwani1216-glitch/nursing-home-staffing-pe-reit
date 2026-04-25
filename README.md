@@ -110,7 +110,7 @@ REIT cohorts were identified via CMS `any_reit_owner` flag + cluster verificatio
 
 **PE:** 52 facilities (31 gold + 21 silver) across 8 PE deals, 2014–2020. Gold = verified by ≥2 independent sources; silver = single-source verified.
 
-**REIT:** 6 REIT deals covering acquisitions between 2011–2018. Treatment year = year of REIT acquisition of the operating company or facility lease.
+**REIT:** 3 REIT deals — American Healthcare REIT/Trilogy (2015), Omega Healthcare/Consulate (2019), Welltower/Genesis (2011) — with original acquisitions spanning 2011–2019. Panel data covers 2009–2023. Treatment year = year of REIT acquisition of the operating company or facility lease.
 
 ---
 
