@@ -40,6 +40,14 @@ echo "  ECON 1430 Final Project — Full Pipeline"
 echo "  Root: $ROOT"
 echo "============================================================"
 
+# ── STEP 0: Download raw data ─────────────────────────────────────────────────
+# Skips files that already exist; downloads CMS data from manifests.
+# LTCFocus requires a one-time manual download (see instructions printed below).
+echo ""
+echo "[0/8] Downloading raw data (CMS automated; LTCFocus manual)..."
+$PYTHON "$ROOT/scripts/download_raw_data.py" \
+  2>&1 | tee "$LOG_DIR/download_raw_data.log"
+
 # ── STEP 1: Build PE treatment dataset ───────────────────────────────────────
 echo ""
 echo "[1/8] Building PE treatment dataset..."

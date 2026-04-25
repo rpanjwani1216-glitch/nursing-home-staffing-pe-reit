@@ -90,17 +90,23 @@ This repository contains the full data pipeline, econometric analysis, and paper
 
 ## Data Sources
 
-All data are publicly available:
+All data are publicly available. Raw data files are not tracked in git (14 GB total)
+but can be downloaded automatically — see **Reproducing the Paper** below.
 
-| Source | Description | Location |
+| Source | Description | Download |
 |--------|-------------|----------|
-| **LTCFocus** (Brown University) | Facility-year staffing (HPRD), payer mix, bed counts | `data/raw/ltcfocus/` |
-| **CMS CHOW filings** | Change of Ownership notifications | `data/raw/cms/chow/` |
-| **CMS Provider of Services** | Facility characteristics, ownership flags | `data/raw/cms/pos/` |
-| **CMS Nursing Home Compare** | Star ratings | `data/raw/cms/nhc/` |
-| **ProPublica Nursing Home Inspect** | PE ownership verification | Public URL |
+| **LTCFocus** (Brown University) | Facility-year staffing (HPRD), payer mix, bed counts | [ltcfocus.org/data](https://ltcfocus.org/data) — free registration required |
+| **CMS PBJ Nurse Staffing** | Daily nurse staffing by facility-quarter (2017–2023) | [data.cms.gov](https://data.cms.gov/quality-of-care/payroll-based-journal-daily-nurse-staffing) — automated via manifest |
+| **CMS SNF All Owners** | Monthly ownership snapshots (2022–present) | [data.cms.gov](https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/skilled-nursing-facility-all-owners) — automated via manifest |
+| **CMS SNF CHOW** | Change of Ownership filings (2022–present) | [data.cms.gov](https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/skilled-nursing-facility-change-of-ownership) — automated via manifest |
+| **CMS SNF Enrollments** | Provider enrollment snapshots (2022–present) | [data.cms.gov](https://data.cms.gov/provider-characteristics/hospitals-and-other-facilities/skilled-nursing-facility-enrollments) — automated via manifest |
+| **CMS Care Compare** | Star ratings, deficiencies, provider info (2016–2023 archived) | [CMS archive](https://data.cms.gov/provider-data/archived-data/nursing-homes) — automated via manifest |
+| **CMS Form 671** | LTC facility characteristics (2023–present) | [data.cms.gov](https://data.cms.gov/provider-data/dataset/4pq5-n9py) — automated via manifest |
 
-PE ownership was verified via CHOW filings + internet search (trade press, HealthcareComps, ProPublica). See `research/ownership_transition_verification_notes.md`.
+Download manifests (exact versioned URLs for every CMS file used) are tracked in git at
+`data/raw/outcomes/cms/manifests/` and read automatically by `scripts/download_raw_data.py`.
+
+PE ownership was verified via CHOW filings + internet search (trade press, HealthcareComps, ProPublica). See `research/verification/ownership_transition_verification_notes.md`.
 
 REIT cohorts were identified via CMS `any_reit_owner` flag + cluster verification. Welltower/Aurora (REIT003) was reverse-engineered from a 2021 exit event traced back to the 2011 Genesis/Welltower deal using LTCFocus 2009–2013 data.
 
@@ -136,11 +142,33 @@ poppler:      pdftoppm  (brew install poppler)
 
 ## Reproducing the Paper
 
+### Option A — Full pipeline from raw data
+
 ```bash
-# 1. Place raw data in data/raw/ (see Data Sources above)
-# 2. Run the full pipeline:
+# 1. Download CMS data automatically + get LTCFocus instructions:
+python3 scripts/download_raw_data.py
+
+# 2. Follow the printed LTCFocus instructions (free registration at ltcfocus.org),
+#    place the annual XLS files in data/raw/ltcfocus/, then run the full pipeline:
 bash run_all.sh
 
 # Final tables → outputs/final/pe/tables/ and outputs/final/reit/tables/
 # Final figures → outputs/final/pe/figures/ and outputs/final/reit/figures/
 ```
+
+`run_all.sh` runs the download script first (Step 0) and skips files that already exist,
+so it is safe to re-run at any point.
+
+### Option B — Stata only (final panels already built)
+
+The final analysis panels are tracked in git at `data/final/panels/` as CSVs.
+If you only want to re-run the econometrics and produce outputs without rebuilding
+the data from scratch:
+
+```stata
+* In Stata, run the master do file:
+do stata/run_all_stata.do
+```
+
+This reads from `data/final/panels/`, runs all regressions and figures, and writes
+to `outputs/final/`.
