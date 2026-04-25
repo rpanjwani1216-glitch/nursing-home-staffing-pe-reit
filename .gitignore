@@ -6,6 +6,9 @@
 # Claude Code
 .claude/
 
+# Pipeline run logs (all go to logs/ via run_all.sh)
+logs/
+
 # Stata logs and temp files
 *.log
 *.smcl

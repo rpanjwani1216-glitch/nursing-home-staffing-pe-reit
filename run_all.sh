@@ -29,6 +29,12 @@ PYTHON="python3"
 LOG_DIR="$ROOT/logs"
 mkdir -p "$LOG_DIR"
 
+# Stata -b creates <dofile>.log in the current working directory.
+# Wrapping calls in (cd "$LOG_DIR" && ...) keeps those files out of the project root.
+run_stata() {
+  (cd "$LOG_DIR" && $STATA -b do "$1")
+}
+
 echo "============================================================"
 echo "  ECON 1430 Final Project — Full Pipeline"
 echo "  Root: $ROOT"
@@ -69,28 +75,28 @@ $PYTHON "$ROOT/scripts/pipeline/build_reit_matched_panel.py" \
 # ── STEP 5: Stata — Medicaid foundation ──────────────────────────────────────
 echo ""
 echo "[5/8] Building Medicaid foundation (Stata)..."
-$STATA -b do "$ROOT/stata/1_foundation/build_medicaid_foundation.do" \
+run_stata "$ROOT/stata/1_foundation/build_medicaid_foundation.do" \
   2>&1 | tee "$LOG_DIR/build_medicaid_foundation.log"
 
 # ── STEP 6: Stata — Main econometrics ────────────────────────────────────────
 echo ""
 echo "[6/8] Running PE strengthening regressions (Stata)..."
-$STATA -b do "$ROOT/stata/3_econometrics/run_paper_strengthening_gold_plus_silver.do" \
+run_stata "$ROOT/stata/3_econometrics/run_paper_strengthening_gold_plus_silver.do" \
   2>&1 | tee "$LOG_DIR/run_pe_strengthening.log"
 
 echo ""
 echo "[6b/8] Running REIT econometrics (Stata)..."
-$STATA -b do "$ROOT/stata/3_econometrics/run_reit_staffing_econometrics.do" \
+run_stata "$ROOT/stata/3_econometrics/run_reit_staffing_econometrics.do" \
   2>&1 | tee "$LOG_DIR/run_reit_econometrics.log"
 
 echo ""
 echo "[6c/8] Running REIT Medicaid heterogeneity (Stata)..."
-$STATA -b do "$ROOT/stata/3_econometrics/run_reit_medicaid_heterogeneity.do" \
+run_stata "$ROOT/stata/3_econometrics/run_reit_medicaid_heterogeneity.do" \
   2>&1 | tee "$LOG_DIR/run_reit_medicaid_heterogeneity.log"
 
 echo ""
 echo "[6d/8] Running star rating econometrics (Stata)..."
-$STATA -b do "$ROOT/stata/3_econometrics/run_star_rating_econometrics_gold_plus_silver.do" \
+run_stata "$ROOT/stata/3_econometrics/run_star_rating_econometrics_gold_plus_silver.do" \
   2>&1 | tee "$LOG_DIR/run_star_rating_econometrics.log"
 
 # ── STEP 7: Build paper support outputs and figures ──────────────────────────
@@ -101,15 +107,15 @@ $PYTHON "$ROOT/scripts/pipeline/build_paper_support_outputs_gold_plus_silver.py"
 $PYTHON "$ROOT/scripts/pipeline/build_reit_support_outputs.py" \
   2>&1 | tee "$LOG_DIR/build_reit_support_outputs.log"
 
-$STATA -b do "$ROOT/stata/4_figures/build_paper_support_figures_gold_plus_silver.do" \
+run_stata "$ROOT/stata/4_figures/build_paper_support_figures_gold_plus_silver.do" \
   2>&1 | tee "$LOG_DIR/build_pe_support_figures.log"
-$STATA -b do "$ROOT/stata/4_figures/build_clean_pe_paper_figures.do" \
+run_stata "$ROOT/stata/4_figures/build_clean_pe_paper_figures.do" \
   2>&1 | tee "$LOG_DIR/build_pe_figures.log"
-$STATA -b do "$ROOT/stata/4_figures/build_medicaid_tercile_figures_gold_plus_silver.do" \
+run_stata "$ROOT/stata/4_figures/build_medicaid_tercile_figures_gold_plus_silver.do" \
   2>&1 | tee "$LOG_DIR/build_pe_medicaid_figures.log"
-$STATA -b do "$ROOT/stata/4_figures/build_reit_support_figures.do" \
+run_stata "$ROOT/stata/4_figures/build_reit_support_figures.do" \
   2>&1 | tee "$LOG_DIR/build_reit_figures.log"
-$STATA -b do "$ROOT/stata/4_figures/build_reit_medicaid_tercile_figures.do" \
+run_stata "$ROOT/stata/4_figures/build_reit_medicaid_tercile_figures.do" \
   2>&1 | tee "$LOG_DIR/build_reit_medicaid_figures.log"
 
 # ── STEP 8: Compile final tables to PDF/PNG ──────────────────────────────────
@@ -117,7 +123,7 @@ echo ""
 echo "[8/8] Compiling final tables (PDF + PNG)..."
 $PYTHON "$ROOT/scripts/pipeline/build_paper_tables_pdf.py" \
   2>&1 | tee "$LOG_DIR/build_paper_tables_pdf.log"
-$STATA -b do "$ROOT/stata/5_output/build_paper_tables_pdf.do" \
+run_stata "$ROOT/stata/5_output/build_paper_tables_pdf.do" \
   2>&1 | tee "$LOG_DIR/build_paper_tables_stata.log"
 
 echo ""
