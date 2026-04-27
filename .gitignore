@@ -40,6 +40,9 @@ data/raw/
 # Large raw research investigation files (>50MB, not needed for replication)
 research/verification/reit_ownership_investigation/reit_consecutive_homes_owner_history_raw.csv
 
+# Research notes (personal drafts, not part of replication package)
+research/notes/
+
 # R history
 .Rhistory
 
