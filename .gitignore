@@ -27,8 +27,14 @@ venv/
 # Intermediate outputs (large, reproducible from pipeline)
 outputs/intermediate/
 
+# Recreated analysis outputs; committed paper artifacts live in outputs/reference/
+outputs/generated/
+
 # All intermediate data (3GB+, reproducible from pipeline)
 data/intermediate/
+
+# Local Stata copies of the published CSV panels
+data/analysis/_stata/
 
 # Raw data (too large / licensed)
 data/raw/

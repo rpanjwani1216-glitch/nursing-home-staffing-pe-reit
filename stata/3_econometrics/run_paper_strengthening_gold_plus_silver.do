@@ -23,12 +23,17 @@ if "`repro_int'" == "" local repro_int "intermediate"
 global INTERMEDIATE "${PROJECT_ROOT}/data/`repro_int'"
 
 local repro_out : env REPRO_OUTPUT
-if "`repro_out'" == "" local repro_out "outputs/intermediate"
+if "`repro_out'" == "" local repro_out "outputs/generated"
 global OUTPUTS_DIR "${PROJECT_ROOT}/`repro_out'"
 
-global ANALYSIS_DIR "${PROJECT_ROOT}/data/final/panels"
+global ANALYSIS_DIR "${PROJECT_ROOT}/data/analysis/_stata"
 global TABLES_DIR "${OUTPUTS_DIR}/tables/econometrics"
 global QA_DIR "${OUTPUTS_DIR}/qa/econometrics"
+
+local repro_quick : env REPRO_QUICK
+if "`repro_quick'" == "" local repro_quick "0"
+local run_holdco : env RUN_EXPLORATORY_HOLDCO
+if "`run_holdco'" == "" local run_holdco "0"
 
 capture mkdir "${OUTPUTS_DIR}"
 capture mkdir "${OUTPUTS_DIR}/tables"
@@ -96,17 +101,17 @@ foreach spec in `panels' {
     local est_suffix ""
 
     if "`spec'" == "gold_plus_silver_v2" {
-        local panel_path "${ANALYSIS_DIR}/regression_analysis_panel_gold_plus_silver_v2.dta"
+        local panel_path "${ANALYSIS_DIR}/pe_national.dta"
         local panel_label "National"
         local est_suffix "nat"
     }
     else if "`spec'" == "gold_plus_silver_v2_same_state" {
-        local panel_path "${ANALYSIS_DIR}/regression_analysis_panel_gold_plus_silver_v2_same_state.dta"
+        local panel_path "${ANALYSIS_DIR}/pe_same_state.dta"
         local panel_label "Same-state"
         local est_suffix "state"
     }
     else if "`spec'" == "gold_plus_silver_v2_same_state_matched" {
-        local panel_path "${ANALYSIS_DIR}/regression_analysis_panel_gold_plus_silver_v2_same_state_matched.dta"
+        local panel_path "${ANALYSIS_DIR}/pe_matched.dta"
         local panel_label "Matched"
         local est_suffix "match"
     }
@@ -131,7 +136,8 @@ foreach spec in `panels' {
     replace deal_cluster = "CTRL_" + ccn_str if sample_role == "control"
     encode deal_cluster, gen(deal_cluster_id)
 
-    destring any_holding_company_owner, replace force
+    capture confirm numeric variable any_holding_company_owner
+    if _rc destring any_holding_company_owner, replace force
     gen byte holdco_transition = (any_holding_company_owner == 1) & (did_treat == 1)
 
     preserve
@@ -211,34 +217,44 @@ foreach spec in `panels' {
     quietly areg pbj_mean_rn_hprd did_treat c.ltcfocus_avgadl_mds3 i.year if !missing(ltcfocus_avgadl_mds3), absorb(ccn_id) vce(cluster ccn_id)
     estimates store rn_main_adl_`est_suffix'
 
-    capture noisily wildbootstrap areg pbj_mean_nurse_hprd did_treat i.year, ///
-        absorb(ccn_id) ///
-        cluster(deal_cluster_id) ///
-        coefficients(did_treat) ///
-        reps(99) ///
-        rseed(12345) ///
-        nolog
-    if _rc == 0 {
-        matrix wb = e(wboot)
-        post `wbpost' ("`panel_label'") ("Total nurse HPRD") (_b[did_treat]) (_se[did_treat]) (wb[1,3]) (wb[1,4]) (wb[1,5]) (e(N_clust)) (e(N_wbreps))
+    if "`repro_quick'" == "1" {
+        post `wbpost' ("`panel_label'") ("Total nurse HPRD") (.) (.) (.) (.) (.) (.) (.)
     }
     else {
-        post `wbpost' ("`panel_label'") ("Total nurse HPRD") (.)(.)(.)(.)(.)(.)(.)
+        capture noisily wildbootstrap areg pbj_mean_nurse_hprd did_treat i.year, ///
+            absorb(ccn_id) ///
+            cluster(deal_cluster_id) ///
+            coefficients(did_treat) ///
+            reps(99) ///
+            rseed(12345) ///
+            nolog
+        if _rc == 0 {
+            matrix wb = e(wboot)
+            post `wbpost' ("`panel_label'") ("Total nurse HPRD") (_b[did_treat]) (_se[did_treat]) (wb[1,3]) (wb[1,4]) (wb[1,5]) (e(N_clust)) (e(N_wbreps))
+        }
+        else {
+            post `wbpost' ("`panel_label'") ("Total nurse HPRD") (.) (.) (.) (.) (.) (.) (.)
+        }
     }
 
-    capture noisily wildbootstrap areg pbj_mean_rn_hprd did_treat i.year, ///
-        absorb(ccn_id) ///
-        cluster(deal_cluster_id) ///
-        coefficients(did_treat) ///
-        reps(99) ///
-        rseed(12345) ///
-        nolog
-    if _rc == 0 {
-        matrix wb = e(wboot)
-        post `wbpost' ("`panel_label'") ("RN HPRD") (_b[did_treat]) (_se[did_treat]) (wb[1,3]) (wb[1,4]) (wb[1,5]) (e(N_clust)) (e(N_wbreps))
+    if "`repro_quick'" == "1" {
+        post `wbpost' ("`panel_label'") ("RN HPRD") (.) (.) (.) (.) (.) (.) (.)
     }
     else {
-        post `wbpost' ("`panel_label'") ("RN HPRD") (.)(.)(.)(.)(.)(.)(.)
+        capture noisily wildbootstrap areg pbj_mean_rn_hprd did_treat i.year, ///
+            absorb(ccn_id) ///
+            cluster(deal_cluster_id) ///
+            coefficients(did_treat) ///
+            reps(99) ///
+            rseed(12345) ///
+            nolog
+        if _rc == 0 {
+            matrix wb = e(wboot)
+            post `wbpost' ("`panel_label'") ("RN HPRD") (_b[did_treat]) (_se[did_treat]) (wb[1,3]) (wb[1,4]) (wb[1,5]) (e(N_clust)) (e(N_wbreps))
+        }
+        else {
+            post `wbpost' ("`panel_label'") ("RN HPRD") (.) (.) (.) (.) (.) (.) (.)
+        }
     }
 
     quietly areg pbj_mean_nurse_hprd c.did_treat##c.baseline_medicaid_centered i.year, absorb(ccn_id) vce(cluster ccn_id)
@@ -346,19 +362,29 @@ foreach spec in `panels' {
             quietly count if tag_left == 1
             local treated_left = r(N)
 
-            quietly areg pbj_mean_nurse_hprd did_treat i.year, absorb(ccn_id) vce(cluster ccn_id)
-            local b = _b[did_treat]
-            local s = _se[did_treat]
-            local lb = `b' - 1.96 * `s'
-            local ub = `b' + 1.96 * `s'
-            post `loopost' ("`panel_label'") ("Total nurse HPRD") ("`deal'") (`omitted_fac') (`b') (`s') (`lb') (`ub') (`treated_left')
+            capture quietly areg pbj_mean_nurse_hprd did_treat i.year, absorb(ccn_id) vce(cluster ccn_id)
+            if _rc == 0 {
+                local b = _b[did_treat]
+                local s = _se[did_treat]
+                local lb = `b' - 1.96 * `s'
+                local ub = `b' + 1.96 * `s'
+                post `loopost' ("`panel_label'") ("Total nurse HPRD") ("`deal'") (`omitted_fac') (`b') (`s') (`lb') (`ub') (`treated_left')
+            }
+            else {
+                post `loopost' ("`panel_label'") ("Total nurse HPRD") ("`deal'") (`omitted_fac') (.) (.) (.) (.) (`treated_left')
+            }
 
-            quietly areg pbj_mean_rn_hprd did_treat i.year, absorb(ccn_id) vce(cluster ccn_id)
-            local b = _b[did_treat]
-            local s = _se[did_treat]
-            local lb = `b' - 1.96 * `s'
-            local ub = `b' + 1.96 * `s'
-            post `loopost' ("`panel_label'") ("RN HPRD") ("`deal'") (`omitted_fac') (`b') (`s') (`lb') (`ub') (`treated_left')
+            capture quietly areg pbj_mean_rn_hprd did_treat i.year, absorb(ccn_id) vce(cluster ccn_id)
+            if _rc == 0 {
+                local b = _b[did_treat]
+                local s = _se[did_treat]
+                local lb = `b' - 1.96 * `s'
+                local ub = `b' + 1.96 * `s'
+                post `loopost' ("`panel_label'") ("RN HPRD") ("`deal'") (`omitted_fac') (`b') (`s') (`lb') (`ub') (`treated_left')
+            }
+            else {
+                post `loopost' ("`panel_label'") ("RN HPRD") ("`deal'") (`omitted_fac') (.) (.) (.) (.) (`treated_left')
+            }
         restore
     }
 
@@ -376,17 +402,19 @@ foreach spec in `panels' {
     quietly areg pbj_mean_rn_hprd did_treat i.year if medicaid_tercile == 3, absorb(ccn_id) vce(cluster ccn_id)
     estimates store terc_rn_high_`est_suffix'
 
-    foreach grp in holdco noholdco {
-        local grp_flag = cond("`grp'" == "holdco", 1, 0)
-        local grp_short = cond("`grp'" == "holdco", "yes", "no")
-        quietly csdid pbj_mean_nurse_hprd baseline_medicaid_share if sample_role == "control" | ever_holdco_treated == `grp_flag', ///
-            ivar(ccn_id) ///
-            time(year) ///
-            gvar(gvar_treat) ///
-            method(dripw)
+    if "`run_holdco'" == "1" {
+        foreach grp in holdco noholdco {
+            local grp_flag = cond("`grp'" == "holdco", 1, 0)
+            local grp_short = cond("`grp'" == "holdco", "yes", "no")
+            quietly csdid pbj_mean_nurse_hprd baseline_medicaid_share if sample_role == "control" | ever_holdco_treated == `grp_flag', ///
+                ivar(ccn_id) ///
+                time(year) ///
+                gvar(gvar_treat) ///
+                method(dripw)
 
-        estimates store csdid_hc_`grp_short'_`est_suffix'
-        capture noisily estat event, window(-2 2) estore(cs_evt_hc_`grp_short'_`est_suffix')
+            estimates store csdid_hc_`grp_short'_`est_suffix'
+            capture noisily estat event, window(-2 2) estore(cs_evt_hc_`grp_short'_`est_suffix')
+        }
     }
 }
 
@@ -518,12 +546,14 @@ _esttab_export_pair ///
     title("Medicaid terciles: RN hours per resident day") ///
     mtitles(`" "Nat. low" "Nat. mid" "Nat. high" "State low" "State mid" "State high" "Match low" "Match mid" "Match high" "')
 
-_esttab_export_pair ///
-    cs_evt_hc_yes_nat cs_evt_hc_no_nat ///
-    cs_evt_hc_yes_state cs_evt_hc_no_state ///
-    cs_evt_hc_yes_match cs_evt_hc_no_match, ///
-    stem(csdid_event_total_nurse_holdco_groups_gold_plus_silver) ///
-    title("CSDID event study: total nurse hours per resident day by holdco exposure") ///
-    mtitles(`" "Nat. holdco" "Nat. no holdco" "State holdco" "State no holdco" "Match holdco" "Match no holdco" "')
+if "`run_holdco'" == "1" {
+    _esttab_export_pair ///
+        cs_evt_hc_yes_nat cs_evt_hc_no_nat ///
+        cs_evt_hc_yes_state cs_evt_hc_no_state ///
+        cs_evt_hc_yes_match cs_evt_hc_no_match, ///
+        stem(csdid_event_total_nurse_holdco_groups_gold_plus_silver) ///
+        title("CSDID event study: total nurse hours per resident day by holdco exposure") ///
+        mtitles(`" "Nat. holdco" "Nat. no holdco" "State holdco" "State no holdco" "Match holdco" "Match no holdco" "')
+}
 
 log close

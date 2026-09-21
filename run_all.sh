@@ -1,145 +1,35 @@
 #!/usr/bin/env bash
-# =============================================================================
-# run_all.sh — Full reproducibility pipeline (shell entry point)
-# Effects of PE and REIT Takeovers on Nursing Home Staffing
-# Rohan Panjwani, ECON 1430, Brown University
-#
-# Usage:
-#   bash run_all.sh
-#
-# Note:
-#   run_all.sh is for shell users.
-#   stata/run_all_stata.do is the Stata-only entry point (runs all .do files).
-#   scripts/run_data_pipeline.py is the Python-only entry point.
-#
-# Requirements:
-#   - Python 3.9+  with pandas, numpy, scipy, scikit-learn, statsmodels
-#   - Stata 17+    with csdid, drdid, estout installed
-#   - pdflatex     (/Library/TeX/texbin/pdflatex)
-#   - pdftoppm     (/opt/homebrew/bin/pdftoppm)
-#
-# Raw data must be placed in data/raw/ before running.
-# See README.md for data sources and directory layout.
-# =============================================================================
-
 set -euo pipefail
+
 ROOT="$(cd "$(dirname "$0")" && pwd)"
-STATA="/Applications/Stata/StataSE.app/Contents/MacOS/stata-se"
-PYTHON="python3"
-LOG_DIR="$ROOT/logs"
+STATA_CMD="${STATA_CMD:-stata-mp}"
+LOG_DIR="$ROOT/outputs/generated/logs"
+COMPLETE_MARKER="$ROOT/outputs/generated/.analysis_complete"
+
 mkdir -p "$LOG_DIR"
+cd "$ROOT"
+rm -f "$COMPLETE_MARKER"
 
-# Stata -b creates <dofile>.log in the current working directory.
-# Wrapping calls in (cd "$LOG_DIR" && ...) keeps those files out of the project root.
-run_stata() {
-  (cd "$LOG_DIR" && $STATA -b do "$1")
-}
+if ! command -v "$STATA_CMD" >/dev/null 2>&1 && [[ ! -x "$STATA_CMD" ]]; then
+  echo "Stata executable not found: $STATA_CMD" >&2
+  echo "Set STATA_CMD to your Stata executable and run again." >&2
+  exit 127
+fi
 
-echo "============================================================"
-echo "  ECON 1430 Final Project — Full Pipeline"
-echo "  Root: $ROOT"
-echo "============================================================"
+echo "Running analysis-only replication workflow"
+echo "Repository: $ROOT"
+echo "Stata:      $STATA_CMD"
 
-# ── STEP 0: Download raw data ─────────────────────────────────────────────────
-# Skips files that already exist; downloads CMS data from manifests.
-# LTCFocus requires a one-time manual download (see instructions printed below).
-echo ""
-echo "[0/8] Downloading raw data (CMS automated; LTCFocus manual)..."
-$PYTHON "$ROOT/scripts/download_raw_data.py" \
-  2>&1 | tee "$LOG_DIR/download_raw_data.log"
+"$STATA_CMD" -b do "$ROOT/stata/run_all_stata.do"
 
-# ── STEP 1: Build PE treatment dataset ───────────────────────────────────────
-echo ""
-echo "[1/8] Building PE treatment dataset..."
-$PYTHON "$ROOT/scripts/pipeline/build_pe_treatment_dataset.py" \
-  2>&1 | tee "$LOG_DIR/build_pe_treatment_dataset.log"
+if [[ -f "$ROOT/run_all_stata.log" ]]; then
+  mv "$ROOT/run_all_stata.log" "$LOG_DIR/run_all_stata.log"
+fi
 
-# ── STEP 2: Build CMS foundation data ────────────────────────────────────────
-echo ""
-echo "[2/8] Building CMS foundation panel..."
-$PYTHON "$ROOT/scripts/pipeline/build_cms_foundation_panel.py" \
-  2>&1 | tee "$LOG_DIR/build_cms_foundation_panel.log"
+if [[ ! -f "$COMPLETE_MARKER" ]]; then
+  echo "Analysis did not complete; inspect outputs/generated/logs/run_all_stata.log." >&2
+  exit 1
+fi
 
-# ── STEP 3: Build LTCFocus intermediates ─────────────────────────────────────
-echo ""
-echo "[3/8] Building LTCFocus intermediates..."
-$PYTHON "$ROOT/scripts/pipeline/build_ltcfocus_intermediates.py" \
-  2>&1 | tee "$LOG_DIR/build_ltcfocus_intermediates.log"
-
-# ── STEP 4: Build analysis panels (PE gold+silver and REIT) ──────────────────
-echo ""
-echo "[4/8] Building analysis panels..."
-$PYTHON "$ROOT/scripts/pipeline/build_regression_analysis_panel_gold_plus_silver.py" \
-  2>&1 | tee "$LOG_DIR/build_pe_panel.log"
-$PYTHON "$ROOT/scripts/pipeline/build_regression_analysis_panel_gold_plus_silver_same_state.py" \
-  2>&1 | tee "$LOG_DIR/build_pe_panel_same_state.log"
-$PYTHON "$ROOT/scripts/pipeline/build_gold_plus_silver_matched_panel.py" \
-  2>&1 | tee "$LOG_DIR/build_pe_panel_matched.log"
-$PYTHON "$ROOT/scripts/pipeline/build_reit_extended_staffing_panel.py" \
-  2>&1 | tee "$LOG_DIR/build_reit_panel.log"
-$PYTHON "$ROOT/scripts/pipeline/build_reit_matched_panel.py" \
-  2>&1 | tee "$LOG_DIR/build_reit_panel_matched.log"
-
-# ── STEP 5: Stata — Medicaid foundation ──────────────────────────────────────
-echo ""
-echo "[5/8] Building Medicaid foundation (Stata)..."
-run_stata "$ROOT/stata/1_foundation/build_medicaid_foundation.do" \
-  2>&1 | tee "$LOG_DIR/build_medicaid_foundation.log"
-
-# ── STEP 6: Stata — Main econometrics ────────────────────────────────────────
-echo ""
-echo "[6/8] Running PE strengthening regressions (Stata)..."
-run_stata "$ROOT/stata/3_econometrics/run_paper_strengthening_gold_plus_silver.do" \
-  2>&1 | tee "$LOG_DIR/run_pe_strengthening.log"
-
-echo ""
-echo "[6b/8] Running REIT econometrics (Stata)..."
-run_stata "$ROOT/stata/3_econometrics/run_reit_staffing_econometrics.do" \
-  2>&1 | tee "$LOG_DIR/run_reit_econometrics.log"
-
-echo ""
-echo "[6c/8] Running REIT Medicaid heterogeneity (Stata)..."
-run_stata "$ROOT/stata/3_econometrics/run_reit_medicaid_heterogeneity.do" \
-  2>&1 | tee "$LOG_DIR/run_reit_medicaid_heterogeneity.log"
-
-echo ""
-echo "[6d/8] Running star rating econometrics (Stata)..."
-run_stata "$ROOT/stata/3_econometrics/run_star_rating_econometrics_gold_plus_silver.do" \
-  2>&1 | tee "$LOG_DIR/run_star_rating_econometrics.log"
-
-# ── STEP 7: Build paper support outputs and figures ──────────────────────────
-echo ""
-echo "[7/8] Building paper support outputs and figures..."
-$PYTHON "$ROOT/scripts/pipeline/build_paper_support_outputs_gold_plus_silver.py" \
-  2>&1 | tee "$LOG_DIR/build_pe_support_outputs.log"
-$PYTHON "$ROOT/scripts/pipeline/build_reit_support_outputs.py" \
-  2>&1 | tee "$LOG_DIR/build_reit_support_outputs.log"
-
-run_stata "$ROOT/stata/4_figures/build_paper_support_figures_gold_plus_silver.do" \
-  2>&1 | tee "$LOG_DIR/build_pe_support_figures.log"
-run_stata "$ROOT/stata/4_figures/build_clean_pe_paper_figures.do" \
-  2>&1 | tee "$LOG_DIR/build_pe_figures.log"
-run_stata "$ROOT/stata/4_figures/build_medicaid_tercile_figures_gold_plus_silver.do" \
-  2>&1 | tee "$LOG_DIR/build_pe_medicaid_figures.log"
-run_stata "$ROOT/stata/4_figures/build_reit_support_figures.do" \
-  2>&1 | tee "$LOG_DIR/build_reit_figures.log"
-run_stata "$ROOT/stata/4_figures/build_reit_medicaid_tercile_figures.do" \
-  2>&1 | tee "$LOG_DIR/build_reit_medicaid_figures.log"
-
-# ── STEP 8: Compile final tables to PDF/PNG ──────────────────────────────────
-echo ""
-echo "[8/8] Compiling final tables (PDF + PNG)..."
-$PYTHON "$ROOT/scripts/pipeline/build_paper_tables_pdf.py" \
-  2>&1 | tee "$LOG_DIR/build_paper_tables_pdf.log"
-run_stata "$ROOT/stata/5_output/build_paper_tables_pdf.do" \
-  2>&1 | tee "$LOG_DIR/build_paper_tables_stata.log"
-
-echo ""
-echo "============================================================"
-echo "  Pipeline complete."
-echo "  Final tables:  outputs/final/pe/tables/"
-echo "                 outputs/final/reit/tables/"
-echo "  Final figures: outputs/final/pe/figures/"
-echo "                 outputs/final/reit/figures/"
-echo "  Stata entry:   stata/run_all_stata.do"
-echo "============================================================"
+echo "Analysis complete. Generated results: outputs/generated/"
+echo "Published reference results: outputs/reference/"

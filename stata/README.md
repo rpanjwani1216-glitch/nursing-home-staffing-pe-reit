@@ -1,18 +1,18 @@
-# Stata Layout
+# Stata analysis
 
-This folder is organized by purpose:
+Run `do stata/run_all_stata.do` from the repository root. The master file:
 
-- `foundation/`
-  - Stata-side data foundation builders
-- `descriptive/`
-  - baseline comparison and sample-description scripts
-- `econometrics/`
-  - main regression and event-study scripts
+1. imports the six tracked CSV panels into a local Stata cache;
+2. recreates baseline-balance tables;
+3. runs the PE, REIT, Medicaid-heterogeneity, and star-rating models; and
+4. recreates the paper figures.
 
-Current entrypoints:
+The Stata cache lives at `data/analysis/_stata/` and generated results live at
+`outputs/generated/`. Both directories are ignored by git.
 
-- [build_medicaid_foundation.do](/Users/rohanpanjwani/School/ECON_1430/Final_Project/stata/foundation/build_medicaid_foundation.do)
-- [build_table1_baseline_balance.do](/Users/rohanpanjwani/School/ECON_1430/Final_Project/stata/descriptive/build_table1_baseline_balance.do)
-- [build_table1_baseline_balance_same_state.do](/Users/rohanpanjwani/School/ECON_1430/Final_Project/stata/descriptive/build_table1_baseline_balance_same_state.do)
-- [build_table1_baseline_balance_same_state_matched.do](/Users/rohanpanjwani/School/ECON_1430/Final_Project/stata/descriptive/build_table1_baseline_balance_same_state_matched.do)
-- [run_staffing_econometrics.do](/Users/rohanpanjwani/School/ECON_1430/Final_Project/stata/econometrics/run_staffing_econometrics.do)
+Folder roles:
+
+- `2_descriptive/`: baseline and balance tables
+- `3_econometrics/`: main regressions, event studies, and diagnostics
+- `4_figures/`: publication figures
+- `5_output/`: optional table rendering wrapper

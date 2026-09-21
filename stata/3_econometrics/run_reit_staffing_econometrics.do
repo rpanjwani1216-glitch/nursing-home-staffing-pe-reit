@@ -18,8 +18,8 @@ else {
     exit 601
 }
 
-global ANALYSIS_DIR "${PROJECT_ROOT}/data/final/panels"
-global OUTPUTS_DIR "${PROJECT_ROOT}/outputs/intermediate"
+global ANALYSIS_DIR "${PROJECT_ROOT}/data/analysis/_stata"
+global OUTPUTS_DIR "${PROJECT_ROOT}/outputs/generated"
 global TABLES_DIR "${OUTPUTS_DIR}/tables/econometrics_reit"
 global FIGURES_DIR "${OUTPUTS_DIR}/figures/econometrics_reit"
 global QA_DIR "${OUTPUTS_DIR}/qa/econometrics_reit"
@@ -88,17 +88,17 @@ foreach spec in `panels' {
     local est_suffix ""
 
     if "`spec'" == "national" {
-        local panel_path "${ANALYSIS_DIR}/reit_staffing_panel_extended.dta"
+        local panel_path "${ANALYSIS_DIR}/reit_national.dta"
         local panel_label "National"
         local est_suffix "nat"
     }
     else if "`spec'" == "same_state" {
-        local panel_path "${ANALYSIS_DIR}/reit_staffing_panel_extended_same_state.dta"
+        local panel_path "${ANALYSIS_DIR}/reit_same_state.dta"
         local panel_label "Same-state"
         local est_suffix "state"
     }
     else if "`spec'" == "matched" {
-        local panel_path "${ANALYSIS_DIR}/reit_staffing_panel_extended_same_state_matched.dta"
+        local panel_path "${ANALYSIS_DIR}/reit_matched.dta"
         local panel_label "Matched"
         local est_suffix "match"
     }

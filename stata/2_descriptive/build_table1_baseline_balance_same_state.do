@@ -18,22 +18,22 @@ else {
     exit 601
 }
 
-global ANALYSIS_DIR "${PROJECT_ROOT}/data/final"
-global ANALYSIS_PANEL_DTA "${ANALYSIS_DIR}/panels/regression_analysis_panel_gold_plus_silver_v2_same_state.dta"
-global ANALYSIS_BALANCE_DIR "${ANALYSIS_DIR}/balance"
-global OUTPUTS_DIR "${PROJECT_ROOT}/outputs"
+global ANALYSIS_DIR "${PROJECT_ROOT}/data/analysis/_stata"
+global ANALYSIS_PANEL_DTA "${ANALYSIS_DIR}/pe_same_state.dta"
+global OUTPUTS_DIR "${PROJECT_ROOT}/outputs/generated"
 global TABLES_DIR "${OUTPUTS_DIR}/tables/balance"
-global QA_OUTPUT "${PROJECT_ROOT}/outputs/intermediate/qa/tables"
+global ANALYSIS_BALANCE_DIR "${TABLES_DIR}"
+global QA_OUTPUT "${OUTPUTS_DIR}/qa/tables"
 
 capture mkdir "${OUTPUTS_DIR}"
 capture mkdir "${OUTPUTS_DIR}/tables"
 capture mkdir "${TABLES_DIR}"
-capture mkdir "${ANALYSIS_BALANCE_DIR}"
+capture mkdir "${OUTPUTS_DIR}/qa"
 capture mkdir "${QA_OUTPUT}"
 
 if !fileexists("${ANALYSIS_PANEL_DTA}") {
     di as error "Same-state analysis panel not found: ${ANALYSIS_PANEL_DTA}"
-    di as error "Run python3 scripts/build_regression_analysis_panel_same_state.py first."
+    di as error "Run do stata/0_prepare_analysis_data.do first."
     exit 601
 }
 
@@ -55,6 +55,7 @@ if _rc {
     exit 111
 }
 
+capture drop treated_ever chain_affiliated for_profit
 gen byte treated_ever = sample_role == "treated"
 label var treated_ever "Treated facility (=1)"
 
