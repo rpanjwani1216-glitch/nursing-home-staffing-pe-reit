@@ -1,9 +1,9 @@
 clear all
 set more off
 
-global project_root "/Users/rohanpanjwani/School/ECON_1430/Final_Project"
-global table_dir "${project_root}/outputs/intermediate/tables/econometrics"
-global fig_dir "${project_root}/outputs/intermediate/figures/econometrics"
+if "${PROJECT_ROOT}" == "" global PROJECT_ROOT "`c(pwd)'"
+global table_dir "${PROJECT_ROOT}/outputs/generated/tables/econometrics"
+global fig_dir "${PROJECT_ROOT}/outputs/generated/figures/econometrics"
 
 cap mkdir "${fig_dir}"
 

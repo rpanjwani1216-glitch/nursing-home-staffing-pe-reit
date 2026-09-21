@@ -1,26 +1,11 @@
-# Python Scripts
+# Analysis support scripts
 
-The Python entrypoints stay flat in this folder so they can be run directly
-without import-path surprises. Their outputs are organized elsewhere.
+The scripts in `analysis/` post-process Stata results and render publication
+tables. They do not download raw data or rebuild the analysis panels.
 
-Main groups:
+- `build_pe_support_outputs.py` prepares PE summary tables and plotting data.
+- `build_reit_support_outputs.py` prepares REIT plotting data.
+- `build_tables.py` renders selected LaTeX tables to PDF and PNG when
+  `pdflatex` and `pdftoppm` are installed.
 
-- treatment research
-  - `build_pe_treatment_dataset.py`
-- CMS raw-to-intermediate builds
-  - `build_cms_foundation_panel.py`
-  - `refresh_cms_deficiency_history.py`
-  - `refresh_cms_provider_history.py`
-- LTCFocus and controls
-  - `build_ltcfocus_intermediates.py`
-  - `build_control_candidate_pools.py`
-- treated and analysis panels
-  - `build_treated_sample_panels.py`
-  - `build_regression_analysis_panel.py`
-  - `build_regression_analysis_panel_same_state.py`
-  - `build_matched_control_panel.py`
-- descriptive / diagnostics helpers
-  - `evaluate_matched_control_variants.py`
-  - `export_table1_baseline_formats.py`
-- pipeline wrapper
-  - `run_data_pipeline.py`
+Run the complete workflow from the repository root with `bash run_all.sh`.

@@ -23,10 +23,10 @@ if "`repro_int'" == "" local repro_int "intermediate"
 global INTERMEDIATE "${PROJECT_ROOT}/data/`repro_int'"
 
 local repro_out : env REPRO_OUTPUT
-if "`repro_out'" == "" local repro_out "outputs/intermediate"
+if "`repro_out'" == "" local repro_out "outputs/generated"
 global OUTPUTS_DIR "${PROJECT_ROOT}/`repro_out'"
 
-global ANALYSIS_DIR "${PROJECT_ROOT}/data/final/panels"
+global ANALYSIS_DIR "${PROJECT_ROOT}/data/analysis/_stata"
 global TABLES_DIR "${OUTPUTS_DIR}/tables/econometrics"
 global FIGURES_DIR "${OUTPUTS_DIR}/figures/econometrics"
 global QA_DIR "${OUTPUTS_DIR}/qa/econometrics"
@@ -88,17 +88,17 @@ foreach spec in `panels' {
     local est_suffix ""
 
     if "`spec'" == "gold_plus_silver_v2" {
-        local panel_path "${ANALYSIS_DIR}/regression_analysis_panel_gold_plus_silver_v2.dta"
+        local panel_path "${ANALYSIS_DIR}/pe_national.dta"
         local panel_label "National"
         local est_suffix "nat"
     }
     else if "`spec'" == "gold_plus_silver_v2_same_state" {
-        local panel_path "${ANALYSIS_DIR}/regression_analysis_panel_gold_plus_silver_v2_same_state.dta"
+        local panel_path "${ANALYSIS_DIR}/pe_same_state.dta"
         local panel_label "Same-state"
         local est_suffix "state"
     }
     else if "`spec'" == "gold_plus_silver_v2_same_state_matched" {
-        local panel_path "${ANALYSIS_DIR}/regression_analysis_panel_gold_plus_silver_v2_same_state_matched.dta"
+        local panel_path "${ANALYSIS_DIR}/pe_matched.dta"
         local panel_label "Matched"
         local est_suffix "match"
     }

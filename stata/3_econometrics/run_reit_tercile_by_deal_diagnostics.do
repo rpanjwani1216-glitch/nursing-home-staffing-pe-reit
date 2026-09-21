@@ -18,16 +18,16 @@ else {
     exit 601
 }
 
-global ANALYSIS_DIR "${PROJECT_ROOT}/data/final/panels"
-global TABLES_DIR "${PROJECT_ROOT}/outputs/intermediate/tables/econometrics_reit"
-global QA_DIR "${PROJECT_ROOT}/outputs/intermediate/qa/econometrics_reit"
+global ANALYSIS_DIR "${PROJECT_ROOT}/data/analysis/_stata"
+global TABLES_DIR "${PROJECT_ROOT}/outputs/generated/tables/econometrics_reit"
+global QA_DIR "${PROJECT_ROOT}/outputs/generated/qa/econometrics_reit"
 
 capture mkdir "${TABLES_DIR}"
 capture mkdir "${QA_DIR}"
 
 log using "${QA_DIR}/run_reit_tercile_by_deal_diagnostics.log", replace text
 
-use "${ANALYSIS_DIR}/reit_staffing_panel_extended.dta", clear
+use "${ANALYSIS_DIR}/reit_national.dta", clear
 keep if sample_main_staffing == 1
 keep if !missing(baseline_medicaid_share)
 
